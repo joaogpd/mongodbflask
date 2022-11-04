@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, abort
 from pymongo import MongoClient
-from objectid import ObjectId
 import datetime
 
 app = Flask(__name__)
@@ -15,7 +14,7 @@ posts = db.posts
 
 @app.route("/")
 def index():
-    found_post = posts.find_one({ "nome" : "Rei do Mate" })
+    found_post = posts.find_one({})
     return "<p>{}</p>".format(found_post)
 
 
